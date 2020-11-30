@@ -1,26 +1,49 @@
+{% extends 'base.html' %} {% block content%}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best News Outlet website </title>
-        {% endif %}
-    </head>
-    <body>
-        <!-- Popular news -->
-    <h3> HEADLINES</h3>
-    {% for source in sources %}
-    <h3>{{source.name}}</h3>
-    {% for headlines in headlines %}
-    <ul>
-        <img src="{{headlines.image}}" alt="" width="200px">
-        <li> {{headlines.description}}</li>
-        <a href="{{headlines.url}}"><button>read more</button></a>
-        <li>{{headlines.time}}</li>
-    </ul>
-    {% endfor %} {% endfor %}
 
-    </body>
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to the best News Outlet website </title>
+    {% endif %}
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css')}}">
+</head>
+
+<body>
+   
+   
+    <div class="container">
+        <div class="row">
+            {% for source in sources%}
+            {% for headlines in headlines %}
+
+            <div class="card-columns" style="width: 18rem;">
+                <div class="card">
+                    <img class="card" src="{{headlines.image}}" alt="Card image cap" width="180" height="100">
+                    <div class="card-body ">
+                        <h5 class="card-title ">{{headlines.description}}</h5>
+                        <p class="card-text ">{{headlines.author}}</p>
+                        <a href="/articles/{{source.id}}" class="btn btn-primary">Read Article</a>
+
+
+                    </div>
+                    <div class="card-footer ">
+                        <small class="text-muted ">Headline date:{{headlines.time}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {%endfor%}
+    {%endfor%}
+    </div>
+    
+    {% endblock%}
+</body>
+
 </html>
