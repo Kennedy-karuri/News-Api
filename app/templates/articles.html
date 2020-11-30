@@ -1,0 +1,35 @@
+{% extends 'base.html'%} {% block content %}
+<h1 style="text-align:center" class="text-capitalize"> {{id}} </h3>
+    <div class="container">
+        <div class="card-columns">
+            {% for article in articles %}
+            <div class="card">
+                <img class="card" src="{{article.image}}" alt="Card image cap">
+                <div class="card-body ">
+                    <h5 class="card-title ">{{article.author}}</h5>
+                    <p class="card-text ">{{article.content}}</p>
+                    <a href="{{article.url}} ">
+                        <p class="card-text badge badge-success ">Read More..</p>
+                    </a>
+                </div>
+                <div class="card-footer ">
+                    <small class="text-muted ">Article date:{{article.time}}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <style>
+        .card {
+            max-width: 380px;
+            max-height: 300vh;
+        }
+        .card-columns {
+            display: grid;
+            grid-template-columns: 400px 400px 400px;
+            width: 100%;
+            margin: auto auto auto;
+        }
+        
+    </style>
+    {% endblock %}
