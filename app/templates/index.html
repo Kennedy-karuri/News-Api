@@ -14,16 +14,16 @@
 </head>
 
 <body>
-   
-   
+
+
     <div class="container">
         <div class="row">
             {% for source in sources%}
             {% for headlines in headlines %}
 
-            <div class="card-columns" style="width: 18rem;">
+            <div class="card-columns text-center"  >
                 <div class="card">
-                    <img class="card" src="{{headlines.image}}" alt="Card image cap" width="180" height="100">
+                    <img class="card" src="{{headlines.image}}" alt="Card image cap" width="500" height="200">
                     <div class="card-body ">
                         <h5 class="card-title ">{{headlines.description}}</h5>
                         <p class="card-text ">{{headlines.author}}</p>
@@ -42,7 +42,7 @@
     {%endfor%}
     {%endfor%}
     </div>
-    
+
     {% endblock%}
 </body>
 
