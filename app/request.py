@@ -1,6 +1,6 @@
 from app import app
 import urllib.request,json
-from .models import Sources,Headlines,News
+from .models import Headlines,News
 
 News = news.News
 
